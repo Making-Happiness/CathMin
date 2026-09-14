@@ -6,7 +6,7 @@ import { AuthField, AuthShell } from "./AdminLoginPage";
 export default function AdminRegisterPage() {
   const { register } = useAdmin();
   const navigate = useNavigate();
-  const [form, setForm] = useState({ confirmPassword: "", email: "", name: "", password: "" });
+  const [form, setForm] = useState({ confirmPassword: "", email: "", name: "", passkey: "", password: "" });
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -16,7 +16,7 @@ export default function AdminRegisterPage() {
     event.preventDefault();
     if (form.password !== form.confirmPassword) { setError("Passwords do not match."); return; }
     setSubmitting(true); setError("");
-    try { await register({ email: form.email, name: form.name, password: form.password }); setSubmitted(true); }
+    try { await register({ email: form.email, name: form.name, passkey: form.passkey, password: form.password }); setSubmitted(true); }
     catch (reason) { setError(reason instanceof Error ? reason.message : "Unable to create the account."); }
     finally { setSubmitting(false); }
   };
@@ -25,6 +25,7 @@ export default function AdminRegisterPage() {
     {submitted ? <div className="space-y-5"><p className="leading-7" style={{ color: "var(--color-stone)" }}>Your account was created. Confirm your email if required, then ask the parish system administrator to assign your BEC, CFD, or YFC role in Supabase before signing in.</p><button className="btn-primary w-full cursor-pointer" onClick={() => navigate("/admin/login")} type="button">Go to sign in</button></div> : <form className="space-y-4" onSubmit={submit}>
       <AuthField label="Full name"><input autoComplete="name" className="admin-input" onChange={(event) => update("name", event.target.value)} required value={form.name} /></AuthField>
       <AuthField label="Email address"><input autoComplete="email" className="admin-input" onChange={(event) => update("email", event.target.value)} required type="email" value={form.email} /></AuthField>
+      <AuthField label="Registration passkey"><input autoComplete="off" className="admin-input" onChange={(event) => update("passkey", event.target.value)} required type="password" value={form.passkey} /></AuthField>
       <AuthField label="Password - at least 12 characters"><input autoComplete="new-password" className="admin-input" minLength={12} onChange={(event) => update("password", event.target.value)} required type="password" value={form.password} /></AuthField>
       <AuthField label="Confirm password"><input autoComplete="new-password" className="admin-input" minLength={12} onChange={(event) => update("confirmPassword", event.target.value)} required type="password" value={form.confirmPassword} /></AuthField>
       {error && <p role="alert" className="text-sm" style={{ color: "var(--color-burgundy)" }}>{error}</p>}

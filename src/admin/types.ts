@@ -59,6 +59,7 @@ export interface MinistryNotification {
 export interface CreateAccountInput {
   email: string;
   name: string;
+  passkey: string;
   password: string;
 }
 

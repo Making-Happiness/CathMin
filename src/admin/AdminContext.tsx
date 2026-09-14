@@ -7,6 +7,7 @@ const LOCAL_CONTENT_KEY = "cathmin.preview.content";
 const LOCAL_APPLICATIONS_KEY = "cathmin.preview.applications";
 const LOCAL_NOTIFICATIONS_KEY = "cathmin.preview.notifications";
 const LOCAL_SESSION_KEY = "cathmin.preview.session";
+const PREVIEW_REGISTRATION_PASSKEY_HASH = "d843d37bbec20335ca72f2c6b9d299372b163490d1d920a759844e15bdadb23f";
 
 interface AdminContextValue {
   applications: MembershipApplication[];
@@ -49,6 +50,12 @@ function saveLocal<T>(key: string, value: T): void {
 
 function isAdminRole(value: unknown): value is AdminRole {
   return typeof value === "string" && (ADMIN_ROLES as readonly string[]).includes(value);
+}
+
+async function isValidPreviewPasskey(passkey: string): Promise<boolean> {
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(passkey));
+  const hash = Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
+  return hash === PREVIEW_REGISTRATION_PASSKEY_HASH;
 }
 
 function isLivePost(item: MinistryContent): boolean {
@@ -151,14 +158,18 @@ export function AdminProvider({ children }: { children: ReactNode }) {
   }, [restoreSupabaseSession]);
 
   const register = useCallback(async (input: CreateAccountInput) => {
+    if (!input.passkey.trim()) throw new Error("Enter the registration passkey.");
     if (!supabase) {
+      if (!(await isValidPreviewPasskey(input.passkey))) throw new Error("The registration passkey is invalid.");
       const previewSession: AdminSession = { email: input.email.trim().toLowerCase(), id: crypto.randomUUID(), name: input.name.trim(), role: "BEC" };
       saveLocal(LOCAL_SESSION_KEY, previewSession);
       setSession(previewSession);
       return;
     }
-    const { error } = await supabase.auth.signUp({ email: input.email.trim(), password: input.password, options: { data: { full_name: input.name.trim() } } });
-    if (error) throw new Error(error.message);
+    const { error } = await supabase.functions.invoke("register-admin", {
+      body: { email: input.email.trim(), fullName: input.name.trim(), passkey: input.passkey, password: input.password },
+    });
+    if (error) throw new Error("The account could not be created. Check the registration passkey and try again.");
   }, []);
 
   const logout = useCallback(async () => {
