@@ -3,11 +3,11 @@ import MinistryMatrix from "../components/MinistryMatrix";
 import ParishBulletin from "../components/ParishBulletin";
 import { MINISTRY_INTRO, MINISTRY_SUMMARIES } from "../data/ministries";
 
-const heroParishImage = "/Converted Landscape Image for Parish.jpg";
-const aboutParishImage = "/About Parish.jpg";
-const communityBaccalaureateImage = "/Community At Baccalaureate Mass.jpg";
-const communityClubDayImage = "/Community at Club Day.jpg";
-const communityParishImage = "/Community at Sacred Heart of Jesus Parish.jpg";
+const heroParishImage = "/hero-landscape.jpg";
+const aboutParishImage = "/about-parish.jpg";
+const communityBaccalaureateImage = "/community-at-baccalaureate-mass.jpg";
+const communityClubDayImage = "/community-at-club-day.jpg";
+const communityParishImage = "/community-at-sacred-heart.jpg";
 
 const MASS_SCHEDULE = [
   { day: "Sunday", times: ["06:30 AM (Cebuano)", "08:00 AM (English)", "09:30 AM (English-Chinese)", "11:00 AM (English)", "04:00 PM (Cebuano)", "05:30 PM (English)"] },
