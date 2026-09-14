@@ -142,5 +142,17 @@
 *.stp                filter=lfs diff=lfs merge=lfs -text
 *.iges               filter=lfs diff=lfs merge=lfs -text
 *.stl                filter=lfs diff=lfs merge=lfs -text
+
+# Application images must ship as normal Git blobs. Vercel's source build
+# receives these files directly and Vite turns the explicit imports into
+# fingerprinted production assets.
+/src/assets/*.png    -filter -diff -merge
+/src/assets/*.jpg    -filter -diff -merge
+/src/assets/*.jpeg   -filter -diff -merge
+/src/assets/*.webp   -filter -diff -merge
+/src/imports/*.png   -filter -diff -merge
+/src/imports/*.jpg   -filter -diff -merge
+/src/imports/*.jpeg  -filter -diff -merge
+/src/imports/*.webp  -filter -diff -merge
 *.nc                 filter=lfs diff=lfs merge=lfs -text
 *.mat                filter=lfs diff=lfs merge=lfs -text
