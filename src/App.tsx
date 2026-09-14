@@ -9,6 +9,7 @@ import MinistryPage from "./pages/MinistryPage";
 import AdminDashboardPage from "./pages/AdminDashboardPage";
 import AdminLoginPage from "./pages/AdminLoginPage";
 import AdminRegisterPage from "./pages/AdminRegisterPage";
+import StoriesPage from "./pages/StoriesPage";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/ministries/cfd" element={<MinistryPage ministry={MINISTRY_DETAILS.cfd} />} />
             <Route path="/ministries/bec" element={<MinistryPage ministry={MINISTRY_DETAILS.bec} />} />
             <Route path="/ministries/yfc" element={<MinistryPage ministry={MINISTRY_DETAILS.yfc} />} />
+            <Route path="/stories" element={<StoriesPage />} />
           </Route>
           <Route path="/admin/login" element={<AdminLoginPage />} />
           <Route path="/admin/register" element={<AdminRegisterPage />} />

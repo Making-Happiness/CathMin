@@ -53,6 +53,10 @@ export default function Navbar() {
           About
         </Link>
 
+        <NavLink to="/stories" className="nav-link" onClick={closeMenus}>
+          Stories
+        </NavLink>
+
         <div
           className="relative z-50"
           onMouseEnter={() => setMinistriesOpen(true)}
@@ -132,6 +136,9 @@ export default function Navbar() {
         >
           <Link to={homeLink("#about")} className="text-2xl" style={mobileLinkStyle} onClick={closeMenus}>
             About
+          </Link>
+          <Link to="/stories" className="text-2xl" style={mobileLinkStyle} onClick={closeMenus}>
+            Stories
           </Link>
           <div>
             <p className="mb-3 text-sm uppercase" style={{ color: "var(--color-gold-light)", letterSpacing: "0.16em" }}>

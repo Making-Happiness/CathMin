@@ -1,13 +1,15 @@
+import { useState } from "react";
 import type { MinistryDetail } from "../data/ministries";
 import { MINISTRY_INTRO } from "../data/ministries";
 import MinistryMatrix from "../components/MinistryMatrix";
+import MembershipApplicationModal from "../components/MembershipApplicationModal";
 
 interface MinistryPageProps {
   ministry: MinistryDetail;
 }
 
 export default function MinistryPage({ ministry }: MinistryPageProps) {
-  const mailtoHref = buildMailto(ministry);
+  const [applicationOpen, setApplicationOpen] = useState(false);
 
   return (
     <>
@@ -55,13 +57,14 @@ export default function MinistryPage({ ministry }: MinistryPageProps) {
             Membership Inquiry
           </h2>
           <p className="mx-auto mb-8 max-w-2xl leading-loose" style={{ color: "var(--color-ink-light)" }}>
-            Begin your formal application by sending a letter of intent to the ministry leadership team.
+            Begin your membership application for {ministry.shortName} directly through the parish ministry desk.
           </p>
-          <a href={mailtoHref} className="btn-primary inline-block">
+          <button className="btn-primary inline-block cursor-pointer" onClick={() => setApplicationOpen(true)} type="button">
             Submit Your Application Form Here
-          </a>
+          </button>
         </div>
       </section>
+      {applicationOpen && <MembershipApplicationModal initialOrganization={ministry.shortName} onClose={() => setApplicationOpen(false)} />}
     </>
   );
 }
@@ -82,13 +85,4 @@ function InfoPanel({ title, text }: InfoPanelProps) {
       </p>
     </article>
   );
-}
-
-function buildMailto(ministry: MinistryDetail) {
-  const subject = encodeURIComponent("Formal Membership Application");
-  const body = encodeURIComponent(
-    `Dear ${ministry.name} Leadership Team,\n\nI respectfully submit this formal letter of intent to apply for membership in ${ministry.name}.\n\nFull Name:\nCourse / Year Level:\nContact Number:\nReason for Joining:\n\nThank you for considering my application.\n\nRespectfully,\n`
-  );
-
-  return `mailto:${ministry.email}?subject=${subject}&body=${body}`;
 }
