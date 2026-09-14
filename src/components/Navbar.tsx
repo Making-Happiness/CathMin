@@ -22,7 +22,7 @@ export default function Navbar() {
         backdropFilter: "blur(8px)",
       }}
     >
-      <Link to="/" className="flex flex-col leading-none" onClick={closeMenus}>
+      <Link to="/" className="flex max-w-[230px] flex-col leading-none md:max-w-none" onClick={closeMenus}>
         <span
           className="text-lg font-medium tracking-widest"
           style={{
@@ -33,18 +33,18 @@ export default function Navbar() {
             textTransform: "uppercase",
           }}
         >
-          Catholic Ministry
+          Catholic Ministries
         </span>
         <span
           className="text-xl"
           style={{
             color: "var(--color-parchment)",
             fontFamily: "var(--font-display)",
-            fontSize: "1.35rem",
+            fontSize: "clamp(1rem, 2.2vw, 1.35rem)",
             lineHeight: 1.1,
           }}
         >
-          Our Lady of Guadlupe
+          Sacred Heart of Jesus Parish
         </span>
       </Link>
 

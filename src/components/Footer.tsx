@@ -5,13 +5,13 @@ export default function Footer() {
         <div className="mb-10 grid gap-10 md:grid-cols-3">
           <div>
             <div style={{ color: "var(--color-gold)", fontFamily: "var(--font-display)", fontSize: "0.65rem", letterSpacing: "0.2em", marginBottom: "8px", textTransform: "uppercase" }}>
-              Catholic Ministry
+              Catholic Campus Ministries
             </div>
             <div style={{ color: "var(--color-parchment)", fontFamily: "var(--font-display)", fontSize: "1.4rem", lineHeight: 1.2, marginBottom: "12px" }}>
               Sacred Heart of Jesus Parish
             </div>
             <p style={{ color: "rgba(247,237,216,0.5)", fontFamily: "var(--font-body)", fontSize: "0.82rem", lineHeight: 1.7 }}>
-              Obrero, Davao City - serving God and neighbor since 1967.
+              BEC, CFD, and YFC serving Sacred Heart of Jesus Parish in Obrero, Davao City.
             </p>
           </div>
 
@@ -20,7 +20,7 @@ export default function Footer() {
               Quick Links
             </div>
             <div className="flex flex-col gap-2">
-              {["About Us", "Mass Times", "Ministries", "Sacraments", "Giving", "Contact"].map((link) => (
+              {["About the Parish", "Mass Times", "BEC", "CFD", "YFC", "Contact"].map((link) => (
                 <a key={link} href="/#contact" style={{ color: "rgba(247,237,216,0.65)", fontFamily: "var(--font-display)", fontSize: "0.9rem" }}>
                   {link}
                 </a>
@@ -33,7 +33,7 @@ export default function Footer() {
               Stay Connected
             </div>
             <p style={{ color: "rgba(247,237,216,0.5)", fontFamily: "var(--font-body)", fontSize: "0.82rem", lineHeight: 1.7, marginBottom: "14px" }}>
-              Receive our weekly parish bulletin and event announcements.
+              Receive ministry bulletin updates and event announcements from BEC, CFD, and YFC.
             </p>
             <div className="flex">
               <input
@@ -51,7 +51,7 @@ export default function Footer() {
 
         <div className="flex flex-wrap items-center justify-between gap-2 border-t pt-6" style={{ borderColor: "rgba(184,137,42,0.2)" }}>
           <p style={{ color: "rgba(247,237,216,0.35)", fontFamily: "var(--font-display)", fontSize: "0.72rem", letterSpacing: "0.08em" }}>
-            (c) 2026 Our Lady of Grace Parish. All rights reserved.
+            © 2026 Sacred Heart of Jesus Parish. All rights reserved.
           </p>
           <p style={{ color: "rgba(247,237,216,0.25)", fontFamily: "var(--font-display)", fontSize: "0.72rem", fontStyle: "italic" }}>
             Deus caritas est
