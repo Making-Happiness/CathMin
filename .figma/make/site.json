@@ -1,0 +1,10 @@
+{
+  "description": "This web application enables Catholic ministries to easily create and customize landing pages, enhancing outreach and engagement with their community.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

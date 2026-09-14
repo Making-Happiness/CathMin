@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'EB Garamond', Georgia, serif;
+  --font-body: 'Lora', Georgia, serif;
+
+  --color-parchment: #F7EDD8;
+  --color-parchment-dark: #EFE0C0;
+  --color-ink: #1A1008;
+  --color-ink-light: #3D2B1A;
+  --color-burgundy: #6B1E2F;
+  --color-burgundy-light: #8A2840;
+  --color-burgundy-dark: #4E1522;
+  --color-gold: #B8892A;
+  --color-gold-light: #D4A843;
+  --color-stone: #8A7D6B;
+  --color-stone-light: #C5B89E;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-stone-light) var(--color-parchment);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-parchment);
+  color: var(--color-ink);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+.nav-link {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-parchment);
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-gold-light);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.gold-rule {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+}
+
+.cross-ornament {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-gold);
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-family: var(--font-display);
+}
+
+.cross-ornament::before,
+.cross-ornament::after {
+  content: '✦';
+  font-size: 0.6rem;
+}
+
+.ministry-card {
+  background: linear-gradient(135deg, #fff9f0, var(--color-parchment));
+  border: 1px solid rgba(184, 137, 42, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.ministry-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(107, 30, 47, 0.12);
+  border-color: rgba(184, 137, 42, 0.5);
+}
+
+.btn-primary {
+  background-color: var(--color-burgundy);
+  color: var(--color-parchment);
+  font-family: var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding: 0.85rem 2.25rem;
+  border: 1px solid var(--color-burgundy-dark);
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-burgundy-light);
+  box-shadow: 0 4px 20px rgba(107, 30, 47, 0.35);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-parchment);
+  font-family: var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  padding: 0.85rem 2.25rem;
+  border: 1px solid rgba(247, 237, 216, 0.5);
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn-ghost:hover {
+  background: rgba(247, 237, 216, 0.1);
+  border-color: rgba(247, 237, 216, 0.8);
+}
+
+.admin-input {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid rgba(184, 137, 42, 0.35);
+  background-color: var(--color-parchment);
+  color: var(--color-ink);
+  padding: 0.7rem 0.8rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  outline: none;
+}
+
+.admin-input:focus {
+  border-color: var(--color-burgundy);
+  box-shadow: 0 0 0 3px rgba(107, 30, 47, 0.18);
+}
+
+.btn-quiet {
+  min-height: 44px;
+  border: 1px solid rgba(184, 137, 42, 0.4);
+  color: var(--color-burgundy);
+  padding: 0.6rem 1rem;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-quiet:hover {
+  background-color: var(--color-burgundy);
+  color: var(--color-parchment);
+}
+
+.mass-row {
+  border-bottom: 1px solid rgba(184, 137, 42, 0.2);
+  transition: background-color 0.2s;
+}
+
+.mass-row:hover {
+  background-color: rgba(184, 137, 42, 0.06);
+}
+
+.quote-mark {
+  font-family: var(--font-display);
+  font-size: 8rem;
+  line-height: 0.5;
+  color: var(--color-gold-light);
+  opacity: 0.35;
+  font-style: italic;
+  user-select: none;
+}
