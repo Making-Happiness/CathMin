@@ -66,13 +66,16 @@ const COMMITTEES = [
 export default function HomePage() {
   return (
     <>
-      <section className="relative flex min-h-dvh flex-col items-center justify-center overflow-hidden text-center" style={{ backgroundColor: "#0e0a06" }}>
-        <img
-          src={heroParishImg}
-          alt="Sacred Heart of Jesus Parish landscape"
-          className="absolute inset-0 h-full w-full object-cover object-center"
-          style={{ opacity: 0.45 }}
-        />
+      <section
+        className="relative flex min-h-dvh flex-col items-center justify-center overflow-hidden text-center"
+        style={{
+          backgroundColor: "#0e0a06",
+          backgroundImage: `url(${heroParishImg})`,
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+        }}
+      >
         <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(26,16,8,0.92) 0%, rgba(61,43,26,0.55) 50%, rgba(26,16,8,0.65) 100%)" }} />
 
         <div className="relative z-10 mx-auto max-w-4xl px-6 py-24">
