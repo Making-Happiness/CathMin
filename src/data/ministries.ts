@@ -1,6 +1,6 @@
-import becLogo from "../assets/BEC_LOGO.png";
-import cfdLogo from "../assets/Logo-removebg-preview.png";
-import yfcLogo from "../assets/YFC_LOGO__1_-removebg-preview.png";
+import becLogo from "../assets/bec-logo.png";
+import cfdLogo from "../assets/cfd-logo.png";
+import yfcLogo from "../assets/yfc-logo.png";
 
 export type MinistrySlug = "cfd" | "bec" | "yfc";
 
