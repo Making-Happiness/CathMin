@@ -8,12 +8,6 @@ import communityClubDayImg from "../assets/community-at-club-day.jpg";
 import communityParishImg from "../assets/community-at-sacred-heart.jpg";
 import heroParishImg from "../assets/hero-landscape.jpg";
 
-const heroParishImage = heroParishImg;
-const aboutParishImage = aboutParishImg;
-const communityBaccalaureateImage = communityBaccalaureateImg;
-const communityClubDayImage = communityClubDayImg;
-const communityParishImage = communityParishImg;
-
 const MASS_SCHEDULE = [
   { day: "Sunday", times: ["06:30 AM (Cebuano)", "08:00 AM (English)", "09:30 AM (English-Chinese)", "11:00 AM (English)", "04:00 PM (Cebuano)", "05:30 PM (English)"] },
   { day: "Monday", times: ["06:00 AM (English)", "05:30 PM (English)"] },
@@ -74,7 +68,7 @@ export default function HomePage() {
     <>
       <section className="relative flex min-h-dvh flex-col items-center justify-center overflow-hidden text-center" style={{ backgroundColor: "#0e0a06" }}>
         <img
-          src={heroParishImage}
+          src={heroParishImg}
           alt="Sacred Heart of Jesus Parish landscape"
           className="absolute inset-0 h-full w-full object-cover object-center"
           style={{ opacity: 0.45 }}
@@ -150,7 +144,7 @@ export default function HomePage() {
           <div className="relative">
             <div className="relative aspect-[4/3] overflow-hidden rounded-sm shadow-2xl">
               <img
-                src={aboutParishImage}
+                src={aboutParishImg}
                 alt="Sacred Heart of Jesus Parish community"
                 className="block h-full w-full object-cover object-center"
                 loading="lazy"
@@ -323,9 +317,9 @@ function EventsSection() {
 
 function CommunitySection() {
   const photos = [
-    { src: communityBaccalaureateImage, alt: "Community gathered at Baccalaureate Mass", filter: "saturate(0.85)" },
-    { src: communityClubDayImage, alt: "Community members at Club Day", filter: "saturate(0.9)" },
-    { src: communityParishImage, alt: "Community at Sacred Heart of Jesus Parish", filter: "saturate(0.85)" },
+    { src: communityBaccalaureateImg, alt: "Community gathered at Baccalaureate Mass", filter: "saturate(0.85)" },
+    { src: communityClubDayImg, alt: "Community members at Club Day", filter: "saturate(0.9)" },
+    { src: communityParishImg, alt: "Community at Sacred Heart of Jesus Parish", filter: "saturate(0.85)" },
   ];
 
   return (
